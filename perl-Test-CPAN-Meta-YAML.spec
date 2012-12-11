@@ -1,21 +1,21 @@
 %define upstream_name    Test-CPAN-Meta-YAML
 %define upstream_version 0.17
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Validate META.json elements
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Validate META.json elements
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Test::Builder)
-BuildRequires: perl(Test::More)
-BuildRequires: perl(Test::YAML::Valid)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Test::Builder)
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(Test::YAML::Valid)
+BuildArch:	noarch
 
 %description
 This module was written to ensure that a META.yml file, provided with a
@@ -31,24 +31,22 @@ Specification.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes META.yml README LICENSE
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Sun May 15 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.170.0-1mdv2011.0
++ Revision: 674855
+- import perl-Test-CPAN-Meta-YAML
 
