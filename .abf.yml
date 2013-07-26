@@ -1,2 +1,4 @@
+removed_sources:
+  Test-CPAN-Meta-YAML-0.17.tar.gz: ea8b7610f3826c35001c64c16990602e3d70674e
 sources:
-  "Test-CPAN-Meta-YAML-0.17.tar.gz": ea8b7610f3826c35001c64c16990602e3d70674e
+  Test-CPAN-Meta-YAML-0.22.tar.gz: b14c9f7023c58afbdfe78554066dfda008221729
