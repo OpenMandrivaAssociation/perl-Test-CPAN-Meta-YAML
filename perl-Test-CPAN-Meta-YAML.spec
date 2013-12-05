@@ -2,14 +2,14 @@
 %define upstream_version 0.22
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version 0.22
+Version:	%perl_convert_version %{upstream_version}
 Release:	1
 
 Summary:	Validate META.json elements
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Test/Test-CPAN-Meta-YAML-0.22.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Test/Test-CPAN-Meta-YAML-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Test::Builder)
@@ -49,5 +49,6 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Sun May 15 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.170.0-1mdv2011.0
 + Revision: 674855
 - import perl-Test-CPAN-Meta-YAML
+
 
 
